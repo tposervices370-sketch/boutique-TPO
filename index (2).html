@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="TPOSERVICES - Boutique en ligne de téléphones, laptops et accessoires. LA QUALITÉ À PETIT PRIX." />
+  <title>TPOSERVICES | LA QUALITÉ À PETIT PRIX</title>
+
+  <!-- Lien vers le CSS externe -->
+  <style>
+:root{--primary:#ffd700;--dark:#1f2937;--light-text:#6b7280;--border-color:#e5e7eb;--danger-color:#dc2626;color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{font-family:system-ui,Arial,sans-serif;background:#fff;color:#1f2937;line-height:1.6}
+header{background:#111;color:#fff;position:sticky;top:0;z-index:50}
+.header-container,.nav-container,.footer-container{max-width:1150px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{height:46px;width:46px;border-radius:50%;object-fit:cover}.logo-container{display:flex;align-items:center;gap:12px}
+.brand-text{font-weight:800;font-size:1.3rem;color:var(--primary)}.slogan{font-size:.72rem;color:#d1d5db}
+.header-actions{display:flex;gap:16px;font-size:1.5rem}.cart-icon,.admin-icon{cursor:pointer;position:relative}
+.cart-count{position:absolute;top:-8px;right:-10px;background:var(--primary);color:#000;border-radius:50%;font-size:.7rem;font-weight:700;min-width:20px;height:20px;display:flex;align-items:center;justify-content:center}
+nav{background:var(--primary);position:sticky;top:66px;z-index:40}.nav-container{justify-content:center;gap:26px;flex-wrap:wrap;padding:8px 20px}
+nav a{color:#000;text-decoration:none;font-weight:600}
+section{max-width:1150px;margin:0 auto;padding:56px 20px}
+.hero{max-width:none;text-align:center;background:linear-gradient(135deg,#fffbe0,#ffe97a);padding:84px 20px}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem)}.subtitle{font-weight:800;margin:8px 0 14px}.hero p{max-width:620px;margin:0 auto 8px}
+.section-title{text-align:center;font-size:1.9rem;margin-bottom:30px}
+.categories,.services,.products-grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.category-card,.service-card{border:1px solid var(--border-color);border-radius:14px;padding:26px;text-align:center;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.service-card{cursor:default}.category-card:hover,.service-card:hover{transform:translateY(-5px);box-shadow:0 12px 26px rgba(0,0,0,.1)}
+.category-icon,.service-icon{font-size:2.6rem;margin-bottom:8px}.category-card p,.service-card p{color:var(--light-text);font-size:.92rem}
+.contact-section{text-align:center}.whatsapp-btn{display:inline-block;margin-top:12px;background:#25d366;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600}
+.btn{border:0;border-radius:8px;padding:10px 16px;font-weight:600;cursor:pointer;font-size:.92rem}.btn-secondary{background:var(--primary);color:#000}
+footer{background:#111;color:#d1d5db}.footer-container{align-items:flex-start;flex-wrap:wrap;padding:40px 20px}.footer-column{flex:1;min-width:200px}
+.footer-column h3{color:var(--primary);margin-bottom:8px}.footer-column ul{list-style:none;padding:0;font-size:.92rem}.footer-column a{color:#d1d5db;text-decoration:none}
+.social-links{display:flex;gap:12px;justify-content:center;margin-top:12px}.footer-bottom{text-align:center;padding:14px;border-top:1px solid #333;font-size:.85rem}
+.cart-overlay,.admin-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:.3s;z-index:90}
+.cart-overlay.active,.admin-overlay.active{opacity:1;visibility:visible}
+.cart-panel,.admin-panel{position:fixed;top:0;right:0;height:100%;width:min(430px,100%);background:#fff;z-index:100;padding:20px;overflow-y:auto;transform:translateX(100%);transition:transform .35s;box-shadow:-8px 0 30px rgba(0,0,0,.2)}
+.cart-panel.open,.admin-panel.open{transform:none}
+.cart-header,.admin-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.close-btn{background:none;border:0;font-size:2rem;cursor:pointer}
+.cart-total{font-weight:700;margin:14px 0}.cart-actions .btn{width:100%}
+.admin-tabs{display:flex;gap:8px;margin-bottom:14px}.tab-btn{flex:1;padding:9px;border:1px solid var(--border-color);background:#fff;border-radius:8px;cursor:pointer;font-weight:600}.tab-btn.active{background:var(--primary)}
+.tab-content{display:none}.tab-content.active{display:block}
+.form-group{margin-bottom:12px}.form-row{display:flex;gap:10px}.form-row .form-group{flex:1}
+label{display:block;font-size:.85rem;font-weight:600;margin-bottom:4px}
+input[type=text],input[type=number],select,textarea{width:100%;padding:9px;border:1px solid #d1d5db;border-radius:8px;font:inherit}textarea{min-height:80px}
+.product-item{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border-color)}
+.product-item-actions{display:flex;flex-direction:column;gap:4px}.edit-btn,.delete-btn{border:0;border-radius:6px;padding:5px 9px;cursor:pointer;font-size:.8rem}.delete-btn{background:var(--danger-color);color:#fff}
+.demo-bandeau{position:fixed;left:12px;bottom:12px;z-index:200;max-width:300px;background:#1f2937;color:#fff;font-size:.8rem;padding:10px 12px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.demo-bandeau button{float:right;background:none;border:0;color:#fff;font-size:1rem;cursor:pointer;margin:-4px -4px 0 6px}
+</style>
+  <style>/* ===== Animations TPOSERVICES (à charger après style.css) ===== */
+
+@keyframes apparait{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes descend{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:none}}
+@keyframes saute{40%{transform:translateY(-10px) scale(1.15)}70%{transform:translateY(0)}}
+@keyframes bump{50%{transform:scale(1.5)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}100%{box-shadow:0 0 0 16px rgba(37,211,102,0)}}
+@keyframes secoue{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+@keyframes pop{from{opacity:0;transform:scale(.9) translateY(10px)}to{opacity:1;transform:none}}
+
+/* Chargement de la page */
+header{animation:descend .6s ease backwards}
+.hero h1{animation:apparait .8s .15s ease backwards}
+.hero .subtitle{animation:apparait .8s .35s ease backwards}
+.hero p:not(.subtitle){animation:apparait .8s .55s ease backwards}
+
+/* Apparition au défilement (la classe .reveal est ajoutée par animations.js) */
+.reveal:not(.visible){opacity:0;transform:translateY(26px)}
+.reveal.visible{animation:apparait .6s var(--delai,0s) ease backwards}
+
+/* Survols */
+.btn{transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.cart-icon,.admin-icon{transition:transform .25s}
+.cart-icon:hover{transform:scale(1.15) rotate(-8deg)}
+.admin-icon:hover{transform:rotate(90deg) scale(1.1)}
+.category-card:hover .category-icon,
+.service-card:hover .service-icon{animation:saute .6s}
+.whatsapp-btn{animation:pulse 2s infinite}
+
+/* Le compteur du panier grossit quand on ajoute un article */
+.cart-count.bump{animation:bump .4s}
+
+/* Fenêtre de mot de passe administrateur */
+.auth-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:16px;animation:apparait .25s ease backwards}
+.auth-box{background:#fff;color:#1f2937;width:100%;max-width:380px;border-radius:14px;padding:28px;box-shadow:0 20px 50px rgba(0,0,0,.3);animation:pop .3s ease backwards}
+.auth-box.erreur{animation:secoue .4s}
+.auth-box h2{font-size:1.25rem;margin-bottom:6px}
+.auth-box p{font-size:.92rem;color:#6b7280;margin-bottom:16px}
+.auth-box input{width:100%;padding:12px;border:2px solid #d1d5db;border-radius:8px;font-size:1rem}
+.auth-box input:focus{outline:none;border-color:#f5b800}
+.auth-msg{min-height:1.3em;margin:8px 0 0;color:#dc2626;font-size:.88rem}
+.auth-actions{display:flex;gap:10px;margin-top:14px}
+.auth-actions button{flex:1;padding:11px;border:0;border-radius:8px;font-weight:600;cursor:pointer;transition:transform .2s}
+.auth-actions button:hover{transform:translateY(-2px)}
+.auth-actions .ok{background:#ffd700;color:#000}
+.auth-actions .non{background:#e5e7eb;color:#374151}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal:not(.visible){opacity:1;transform:none}
+}
+
+/* ===== Produits, panier et notifications ===== */
+.produit-carte{background:#fff;border:1px solid var(--border-color,#e5e7eb);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.produit-carte:hover{transform:translateY(-6px);box-shadow:0 14px 28px rgba(0,0,0,.12)}
+.produit-visuel{position:relative;height:190px;background:#fafafa;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.produit-visuel img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.produit-carte:hover .produit-visuel img{transform:scale(1.07)}
+.produit-emoji{font-size:4rem}
+.produit-badge{position:absolute;top:10px;left:10px;z-index:1;background:#ffd700;color:#000;font-weight:700;font-size:.78rem;padding:3px 10px;border-radius:999px}
+.produit-infos{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1;text-align:left}
+.produit-cat,.produit-infos p{font-size:.88rem;color:var(--light-text,#6b7280)}
+.produit-infos p{flex:1}
+.produit-bas{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px}
+.produit-prix{font-weight:700}
+.vide{grid-column:1/-1;text-align:center;padding:2rem;color:var(--light-text,#6b7280)}
+.panier-ligne{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--border-color,#e5e7eb)}
+.panier-ligne small{display:block;color:var(--light-text,#6b7280)}
+.panier-qte{display:flex;align-items:center;gap:6px}
+.panier-qte button{min-width:28px;height:28px;border:1px solid var(--border-color,#d1d5db);background:#fff;border-radius:50%;cursor:pointer}
+#notification{position:fixed;right:20px;bottom:20px;z-index:10000;max-width:320px;padding:14px 18px;border-radius:10px;background:#1f2937;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.25);opacity:0;visibility:hidden;transform:translateY(20px);transition:opacity .3s,transform .3s,visibility .3s}
+#notification.toast-on{opacity:1;visibility:visible;transform:none}
+#notification.toast-err{background:#b91c1c}
+
+/* ===== Compte client et commandes ===== */
+.auth-box input{margin-bottom:10px}
+.auth-box .lien{background:none;border:0;color:#b45309;text-decoration:underline;cursor:pointer;padding:0;font:inherit}
+.auth-box .commande{border-bottom:1px solid #e5e7eb;padding:8px 0;font-size:.9rem;color:#1f2937}
+</style>
+
+  <!-- Lien vers les scripts externes (à charger à la fin du body) -->
+</head>
+<body>
+  <!-- En-tête -->
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='30' fill='%23ffd700'/%3E%3Ctext x='30' y='37' font-size='20' font-weight='700' text-anchor='middle' font-family='Arial'%3ETPO%3C/text%3E%3C/svg%3E" alt="TPOSERVICES Logo" class="logo" />
+        <div>
+          <div class="brand-text">TPOSERVICES</div>
+          <div class="slogan">LA QUALITÉ À PETIT PRIX</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="cart-icon" onclick="toggleCartPanel()">
+          🛒
+          <span class="cart-count" id="cart-count">0</span>
+        </div>
+        <div class="admin-icon" onclick="toggleAdminPanel()" title="Gérer les articles">
+          ⚙️
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="#accueil">Accueil</a>
+      <a href="#categories">Catégories</a>
+      <a href="#produits">Produits</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Panneau du panier -->
+  <div class="cart-overlay" id="cart-overlay" onclick="toggleCartPanel()"></div>
+  <div class="cart-panel" id="cart-panel">
+    <div class="cart-header">
+      <h2>🛒 Mon Panier</h2>
+      <button class="close-btn" onclick="toggleCartPanel()">&times;</button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <p style="text-align: center; color: var(--light-text);">Votre panier est vide.</p>
+    </div>
+    <div class="cart-actions">
+      <div class="cart-total">Total: <span id="cart-total">0 FCFA</span></div>
+      <button class="btn btn-secondary" onclick="commanderWhatsApp()">💬 Commander sur WhatsApp</button>
+      <button class="btn" style="margin-top:8px;background:#e5e7eb" onclick="toggleCartPanel()">Continuer les achats</button>
+    </div>
+  </div>
+
+  <!-- Panneau d'administration -->
+  <div class="admin-overlay" id="admin-overlay" onclick="closeAdminPanel()"></div>
+  <div class="admin-panel" id="admin-panel">
+    <div class="admin-header">
+      <h2>⚙️ Gestion des Articles</h2>
+      <button class="close-btn" onclick="closeAdminPanel()">&times;</button>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="tab-btn active" onclick="switchTab('add')">Ajouter</button>
+      <button class="tab-btn" onclick="switchTab('edit')">Modifier/Supprimer</button>
+      <button class="tab-btn" onclick="switchTab('publish')">Publier</button>
+    </div>
+
+    <!-- Onglet Ajouter -->
+    <div class="tab-content active" id="add-tab">
+      <form id="add-product-form" onsubmit="addProduct(event)">
+        <div class="form-group">
+          <label for="product-name">Nom du produit *</label>
+          <input type="text" id="product-name" required placeholder="ex: iPhone 15 Pro Max" />
+        </div>
+
+        <div class="form-group">
+          <label for="product-category">Catégorie *</label>
+          <select id="product-category" required>
+            <option value="">Sélectionnez une catégorie</option>
+            <option value="Téléphones">Téléphones</option>
+            <option value="Laptops">Laptops</option>
+            <option value="Accessoires">Accessoires</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="product-price">Prix (FCFA) *</label>
+            <input type="number" id="product-price" required placeholder="ex: 450000" min="0" />
+          </div>
+          <div class="form-group">
+            <label for="product-rating">Note (⭐) *</label>
+            <select id="product-rating" required>
+              <option value="">Sélectionnez</option>
+              <option value="5">⭐⭐⭐⭐⭐ (5.0)</option>
+              <option value="4.9">⭐⭐⭐⭐☆ (4.9)</option>
+              <option value="4.8">⭐⭐⭐⭐☆ (4.8)</option>
+              <option value="4.7">⭐⭐⭐⭐☆ (4.7)</option>
+              <option value="4.5">⭐⭐⭐⭐☆ (4.5)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="product-description">Description *</label>
+          <textarea id="product-description" required placeholder="Décrivez le produit..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Image du produit (optionnel)</label>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <input type="file" id="product-image-upload" accept="image/*" style="display: none;" onchange="handleImageUpload(event)" />
+            <button type="button" onclick="document.getElementById('product-image-upload').click()" class="btn btn-secondary" style="flex: 1;">
+              📁 Choisir une image
+            </button>
+            <input type="text" id="product-image" placeholder="ou coller un lien URL..." style="flex: 2;" />
+          </div>
+          <div id="image-preview" style="margin-top: 10px; max-width: 200px; max-height: 200px; display: none;">
+            <img id="preview-img" style="width: 100%; height: auto; border: 2px solid var(--border-color); border-radius: 0.5rem;" />
+            <button type="button" onclick="removeImagePreview()" style="margin-top: 5px; background: var(--danger-color); color: white; border: none; padding: 5px 10px; border-radius: 0.25rem; cursor: pointer;">
+              🗑️ Supprimer
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="product-badge">Badge (optionnel)</label>
+          <select id="product-badge">
+            <option value="">Aucun</option>
+            <option value="discount">-15% (Promo)</option>
+            <option value="new">Nouveau</option>
+            <option value="best">Meilleure vente</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-secondary">✅ Ajouter le produit</button>
+          <button type="reset" class="btn" style="background-color: #6B7280; color: white;">Réinitialiser</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Onglet Modifier/Supprimer -->
+    <div class="tab-content" id="edit-tab">
+      <div class="form-group">
+        <label>Filtrer par catégorie</label>
+        <select id="filter-category" onchange="filterProductsByCategory()">
+          <option value="all">Tous les produits</option>
+          <option value="Téléphones">Téléphones</option>
+          <option value="Laptops">Laptops</option>
+          <option value="Accessoires">Accessoires</option>
+        </select>
+      </div>
+
+      <div class="product-list" id="product-list">
+        <!-- Les produits seront listés ici -->
+      </div>
+    </div>
+    <!-- Onglet Publier -->
+    <div class="tab-content" id="publish-tab">
+      <p style="margin-bottom: 14px; color: var(--light-text);">Tes modifications sont enregistrées dans ce navigateur seulement. Pour que tous les visiteurs les voient : télécharge le fichier, remplace <b>js/produits.js</b> dans ton dossier, puis republie le site.</p>
+      <div class="form-group"><button type="button" class="btn btn-secondary" onclick="exportProduits()">⬇️ Télécharger produits.js</button></div>
+      <div class="form-group"><button type="button" class="btn" style="background: #e5e7eb;" onclick="resetBrouillon()">Annuler mes modifications</button></div>
+    </div>
+  </div>
+
+  <!-- Contenu principal -->
+  <main>
+    <!-- Bannière -->
+    <section class="hero" id="accueil">
+      <h1>Bienvenue chez TPOSERVICES</h1>
+      <p class="subtitle">LA QUALITÉ À PETIT PRIX</p>
+      <p>Découvrez notre large gamme de téléphones, laptops et accessoires informatiques. Livraison rapide dans tout le Cameroun.</p>
+    </section>
+
+    <!-- Catégories -->
+    <section id="categories">
+      <h2 class="section-title">Nos Catégories</h2>
+      <div class="categories">
+        <div class="category-card" onclick="filterByCategory('Téléphones')">
+          <div class="category-icon">📱</div>
+          <h3>Téléphones</h3>
+          <p>Smartphones Android et iPhone, neufs et reconditionnés.</p>
+        </div>
+        <div class="category-card" onclick="filterByCategory('Laptops')">
+          <div class="category-icon">💻</div>
+          <h3>Laptops</h3>
+          <p>Ordinateurs portables pour tous les budgets.</p>
+        </div>
+        <div class="category-card" onclick="filterByCategory('Accessoires')">
+          <div class="category-icon">🎧</div>
+          <h3>Accessoires</h3>
+          <p>Écouteurs, chargeurs, coques, claviers, etc.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produits -->
+    <section id="produits">
+      <h2 class="section-title">Nos Produits</h2>
+      <div class="products-grid" id="products-grid">
+        <!-- Les produits seront générés ici -->
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <h2 class="section-title">Nos Services</h2>
+      <div class="services">
+        <div class="service-card">
+          <div class="service-icon">🚚</div>
+          <h3>Livraison Rapide</h3>
+          <p>Livraison sous 24-48h dans tout le Cameroun. Frais de port offerts à partir de 100 000 FCFA.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛡️</div>
+          <h3>Garantie 12 Mois</h3>
+          <p>Tous nos produits neufs bénéficient d'une garantie constructeur de 12 mois.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💳</div>
+          <h3>Paiement Sécurisé</h3>
+          <p>Paiement en ligne sécurisé (Mobile Money, carte bancaire) ou à la livraison.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔧</div>
+          <h3>Réparation</h3>
+          <p>Service de réparation pour smartphones et laptops. Diagnostic gratuit sous 24h.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contactez TPOSERVICES</h2>
+      <div class="contact-section">
+        <p style="text-align: center; margin-bottom: 1.5rem;">
+          Une question ? Besoin d'un devis ? Contactez-nous !
+        </p>
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <p>📞 +237 695 831 543 | +237 672 769 793</p>
+          <p>📧 tposervices370@gmail.com</p>
+          <a href="https://whatsapp.com/channel/0029Va91PjaKGGGA9Fdvar2f/1171" target="_blank" class="whatsapp-btn">
+            💬 Rejoindre notre chaîne WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <div style="text-align: center; margin-bottom: 1rem;">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='30' fill='%23ffd700'/%3E%3Ctext x='30' y='37' font-size='20' font-weight='700' text-anchor='middle' font-family='Arial'%3ETPO%3C/text%3E%3C/svg%3E" alt="TPOSERVICES Logo" style="height: 60px; width: auto; filter: invert(1);" />
+        </div>
+        <p style="text-align: center;">Votre spécialiste en téléphonie, informatique et accessoires au Cameroun.</p>
+        <div class="social-links">
+          <a href="#">📘</a>
+          <a href="#">🐦</a>
+          <a href="#">📷</a>
+          <a href="https://whatsapp.com/channel/0029Va91PjaKGGGA9Fdvar2f/1171" target="_blank">💬</a>
+          <a href="#">📺</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Liens Utiles</h3>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#categories">Catégories</a></li>
+          <li><a href="#produits">Produits</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Catégories</h3>
+        <ul>
+          <li><a href="#" onclick="filterByCategory('Téléphones')">Téléphones</a></li>
+          <li><a href="#" onclick="filterByCategory('Laptops')">Laptops</a></li>
+          <li><a href="#" onclick="filterByCategory('Accessoires')">Accessoires</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <ul>
+          <li>📍 Douala, Cameroun</li>
+          <li>📞 +237 695 831 543</li>
+          <li>📞 +237 672 769 793</li>
+          <li>📧 tposervices370@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 TPOSERVICES. Tous droits réservés. LA QUALITÉ À PETIT PRIX.</p>
+    </div>
+  </footer>
+
+  <!-- Notification -->
+  <div class="notification" id="notification"></div>
+<div class="demo-bandeau"><button onclick="this.parentNode.remove()" aria-label="Fermer">×</button><strong>Aperçu</strong><br>⚙️ : mot de passe provisoire <b>ChangeMoi2026</b>. Les 3 produits sont des exemples à remplacer. « Commander » ouvre WhatsApp.</div>
+
+  <!-- Charger les scripts à la fin du body pour un chargement plus rapide -->
+  <script>try{localStorage.setItem('_t','1')}catch(e){try{Object.defineProperty(window,'localStorage',{value:{_d:{},getItem(k){return this._d[k]??null},setItem(k,v){this._d[k]=String(v)},removeItem(k){delete this._d[k]}}})}catch(_){}}
+// ===== À MODIFIER : les infos de ta boutique et tes produits =====
+// whatsapp : indicatif du pays + numéro, sans "+" ni espaces (ex : 237695831543)
+const BOUTIQUE = { nom: "TPOSERVICES", whatsapp: "237695831543" };
+
+const CATEGORIES = [
+  { name: "Téléphones", description: "Smartphones Android et iPhone, neufs et reconditionnés." },
+  { name: "Laptops", description: "Ordinateurs portables pour tous les budgets." },
+  { name: "Accessoires", description: "Écouteurs, chargeurs, coques, claviers, etc." }
+];
+
+// Produits d'exemple : remplace-les par les tiens (avec l'éditeur ⚙️ ou en modifiant ce fichier).
+// image : un emoji, ou le chemin d'une photo rangée dans le dossier images/ (ex : "images/iphone.jpg")
+// badge : "" ou "discount" (-15%), "new" (Nouveau), "best" (Meilleure vente)
+const PRODUITS = [
+  { id: 1, name: "Smartphone (exemple)", category: "Téléphones", price: 150000, description: "Produit d'exemple à remplacer.", rating: "4.8", image: "📱", badge: "" },
+  { id: 2, name: "Laptop (exemple)", category: "Laptops", price: 320000, description: "Produit d'exemple à remplacer.", rating: "4.7", image: "💻", badge: "" },
+  { id: 3, name: "Écouteurs (exemple)", category: "Accessoires", price: 15000, description: "Produit d'exemple à remplacer.", rating: "4.5", image: "🎧", badge: "" }
+];
+</script>
+  <script>// ========== ÉTAT PARTAGÉ (utilisé aussi par admin.js et cart.js) ==========
+let products = [];
+let cart = [];
+let editingProductId = null;
+let uploadedImageDataUrl = null;
+
+// ========== OUTILS ==========
+function escapeHtml(texte) {
+  return String(texte ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function formatPrice(n) {
+  return new Intl.NumberFormat('fr-FR').format(Number(n) || 0) + ' FCFA';
+}
+
+let notifTimer;
+function showNotification(message, isError = false) {
+  const el = document.getElementById('notification');
+  if (!el) { console.log(message); return; }
+  el.textContent = message;
+  el.classList.toggle('toast-err', isError);
+  el.classList.add('toast-on');
+  clearTimeout(notifTimer);
+  notifTimer = setTimeout(() => el.classList.remove('toast-on'), 3200);
+}
+
+// Le serveur renvoie product_id / category_name / image_url : on uniformise le format
+function normalizeProduct(p) {
+  return {
+    id: p.product_id ?? p.id,
+    name: p.name,
+    category: p.category_name ?? p.category,
+    price: Number(p.price) || 0,
+    description: p.description || '',
+    rating: p.rating,
+    image: p.image_url ?? p.image ?? '',
+    badge: p.badge || ''
+  };
+}
+
+// ========== AFFICHAGE DES PRODUITS ==========
+function renderProducts() {
+  const grid = document.getElementById('products-grid');
+  if (!grid) return;
+  const liste = products.map(normalizeProduct).filter(p => !filtreCategorie || p.category === filtreCategorie);
+  if (!liste.length) {
+    grid.innerHTML = '<p class="vide">Aucun produit disponible pour le moment.</p>';
+    return;
+  }
+  const badges = { discount: '-15%', new: 'Nouveau', best: 'Meilleure vente' };
+  grid.innerHTML = liste.map(p => {
+    const estImage = /^(data:image|https?:\/\/|\/|\.\/|images\/)/.test(p.image);
+    const visuel = estImage
+      ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy">`
+      : `<span class="produit-emoji">${escapeHtml(p.image || '📦')}</span>`;
+    const badge = badges[p.badge] ? `<span class="produit-badge">${badges[p.badge]}</span>` : '';
+    const note = p.rating ? `<div>⭐ ${Number(p.rating).toFixed(1)}</div>` : '';
+    return `
+      <article class="produit-carte">
+        <div class="produit-visuel">${badge}${visuel}</div>
+        <div class="produit-infos">
+          <span class="produit-cat">${escapeHtml(p.category)}</span>
+          <h3>${escapeHtml(p.name)}</h3>
+          <p>${escapeHtml(p.description)}</p>
+          ${note}
+          <div class="produit-bas">
+            <span class="produit-prix">${formatPrice(p.price)}</span>
+            <button class="btn btn-secondary" onclick="addToCart(${Number(p.id)})">🛒 Ajouter</button>
+          </div>
+        </div>
+      </article>`;
+  }).join('');
+}
+
+// ========== CATÉGORIES ==========
+function renderCategories(categories) {
+  const conteneur = document.querySelector('#categories .categories');
+  if (!conteneur || !Array.isArray(categories) || !categories.length) return;
+  const icones = { 'Téléphones': '📱', 'Laptops': '💻', 'Accessoires': '🎧' };
+  conteneur.innerHTML = categories.map(c => `
+    <div class="category-card" data-categorie="${escapeHtml(c.name)}">
+      <div class="category-icon">${icones[c.name] || '🛍️'}</div>
+      <h3>${escapeHtml(c.name)}</h3>
+      <p>${escapeHtml(c.description || '')}</p>
+    </div>`).join('');
+  conteneur.querySelectorAll('.category-card').forEach(carte =>
+    carte.addEventListener('click', () => filterByCategory(carte.dataset.categorie)));
+}
+
+// ========== PANIER ==========
+function toggleCartPanel() {
+  document.getElementById('cart-panel').classList.toggle('open');
+  document.getElementById('cart-overlay').classList.toggle('active');
+}
+
+function changeQuantity(productId, delta) {
+  const ligne = cart.find(i => i.id === productId);
+  if (!ligne) return;
+  ligne.quantity += delta;
+  if (ligne.quantity <= 0) return removeFromCart(productId);
+  saveData();
+  renderCart();
+}
+
+function renderCart() {
+  const boite = document.getElementById('cart-items');
+  if (!boite) return;
+  const parId = new Map(products.map(normalizeProduct).map(p => [p.id, p]));
+  const lignes = cart.filter(i => parId.has(i.id));
+  let total = 0, nombre = 0;
+  boite.innerHTML = lignes.length ? lignes.map(i => {
+    const p = parId.get(i.id);
+    total += p.price * i.quantity;
+    nombre += i.quantity;
+    return `
+      <div class="panier-ligne">
+        <div><strong>${escapeHtml(p.name)}</strong><small>${formatPrice(p.price)}</small></div>
+        <div class="panier-qte">
+          <button onclick="changeQuantity(${p.id}, -1)" aria-label="Retirer un">−</button>
+          <span>${i.quantity}</span>
+          <button onclick="changeQuantity(${p.id}, 1)" aria-label="Ajouter un">+</button>
+          <button onclick="removeFromCart(${p.id})" aria-label="Supprimer">🗑️</button>
+        </div>
+      </div>`;
+  }).join('') : '<p style="text-align:center;color:var(--light-text);">Votre panier est vide.</p>';
+  document.getElementById('cart-total').textContent = formatPrice(total);
+  document.getElementById('cart-count').textContent = nombre;
+}
+
+// ========== IMAGE DU PRODUIT (formulaire admin) ==========
+// L'image est réduite (600 px max) pour rester légère à envoyer au serveur.
+function handleImageUpload(event) {
+  const fichier = event.target.files[0];
+  if (!fichier) return;
+  if (!fichier.type.startsWith('image/') || fichier.size > 8 * 1024 * 1024) {
+    showNotification('Choisis une image de moins de 8 Mo.', true);
+    event.target.value = '';
+    return;
+  }
+  const lecteur = new FileReader();
+  lecteur.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      const ratio = Math.min(1, 600 / Math.max(img.width, img.height));
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(img.width * ratio);
+      canvas.height = Math.round(img.height * ratio);
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      uploadedImageDataUrl = canvas.toDataURL('image/jpeg', 0.75);
+      document.getElementById('preview-img').src = uploadedImageDataUrl;
+      document.getElementById('image-preview').style.display = 'block';
+      document.getElementById('product-image').value = '';
+    };
+    img.src = lecteur.result;
+  };
+  lecteur.readAsDataURL(fichier);
+}
+
+function removeImagePreview() {
+  uploadedImageDataUrl = null;
+  document.getElementById('preview-img').removeAttribute('src');
+  document.getElementById('image-preview').style.display = 'none';
+  document.getElementById('product-image-upload').value = '';
+  document.getElementById('product-image').value = '';
+}
+
+// ========== DONNÉES (js/produits.js + brouillon de l'éditeur) ==========
+const CLE_BROUILLON = 'tpo_produits_brouillon';
+let filtreCategorie = '';
+
+function chargerProduits() {
+  try {
+    const brouillon = JSON.parse(localStorage.getItem(CLE_BROUILLON));
+    if (Array.isArray(brouillon)) return brouillon;
+  } catch (e) {}
+  return PRODUITS.map(p => ({ ...p }));
+}
+
+function sauverBrouillon() {
+  try { localStorage.setItem(CLE_BROUILLON, JSON.stringify(products)); }
+  catch (e) { showNotification("Impossible d'enregistrer (image trop lourde ?).", true); }
+}
+
+function filterByCategory(category) {
+  filtreCategorie = category || '';
+  renderProducts();
+  document.getElementById('produits').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ========== COMMANDE PAR WHATSAPP ==========
+function commanderWhatsApp() {
+  const parId = new Map(products.map(normalizeProduct).map(p => [p.id, p]));
+  const lignes = cart.filter(i => parId.has(i.id));
+  if (!lignes.length) return showNotification('Votre panier est vide.', true);
+  let total = 0;
+  const detail = lignes.map(i => {
+    const p = parId.get(i.id);
+    total += p.price * i.quantity;
+    return `• ${i.quantity} × ${p.name} : ${formatPrice(p.price * i.quantity)}`;
+  }).join('\n');
+  const message = `Bonjour ${BOUTIQUE.nom}, je souhaite commander :\n${detail}\n\nTotal : ${formatPrice(total)}\n\nMon nom :\nMon adresse de livraison :`;
+  window.open(`https://wa.me/${BOUTIQUE.whatsapp}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+}
+
+// ========== DÉMARRAGE ==========
+function init() {
+  products = chargerProduits();
+  try { loadData(); } catch (e) {}
+  renderCategories(CATEGORIES);
+  renderProducts();
+  renderCart();
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+  <script>// ========== ADMINISTRATION (sans serveur) ==========
+/* Comment ça marche :
+   - Le mot de passe sert seulement à ouvrir l'éditeur. Tes modifications restent dans CE navigateur :
+     personne ne peut changer le vrai catalogue sans accès à tes fichiers.
+   - Pour publier : onglet "Publier" -> télécharge produits.js, remplace js/produits.js dans ton dossier, republie le site.
+   Mot de passe provisoire : ChangeMoi2026 (à changer).
+   Pour en choisir un autre : ouvre la console du navigateur (F12) et colle, en remplaçant MonMotDePasse :
+   crypto.subtle.digest("SHA-256",new TextEncoder().encode("MonMotDePasse")).then(b=>console.log([...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")))
+   puis colle le résultat à la place de ADMIN_HASH. */
+const ADMIN_HASH = "3c3ef17a499c4fc019033d6c31f7606a9b891f9950e6c0060b91f1e287572349";
+
+let adminDebut = 0, essais = 0, bloqueJusqua = 0;
+const adminConnecte = () => Date.now() - adminDebut < 15 * 60 * 1000;
+
+async function empreinte(texte) {
+  const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(texte));
+  return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join("");
+}
+
+function demanderMotDePasse() {
+  return new Promise(resolve => {
+    if (document.querySelector('.auth-overlay')) return resolve(false);
+    const fond = document.createElement('div');
+    fond.className = 'auth-overlay';
+    fond.innerHTML = `<form class="auth-box"><h2>🔒 Espace administrateur</h2><p>Entre le mot de passe pour gérer les articles.</p>
+      <input type="password" id="auth-mdp" placeholder="Mot de passe" autocomplete="current-password" required>
+      <p class="auth-msg" role="alert"></p>
+      <div class="auth-actions"><button type="button" class="non">Annuler</button><button type="submit" class="ok">Valider</button></div></form>`;
+    document.body.appendChild(fond);
+    const champ = fond.querySelector('#auth-mdp'), msg = fond.querySelector('.auth-msg');
+    const fermer = ok => { fond.remove(); resolve(ok); };
+    fond.querySelector('.non').onclick = () => fermer(false);
+    fond.addEventListener('click', e => { if (e.target === fond) fermer(false); });
+    fond.querySelector('form').onsubmit = async e => {
+      e.preventDefault();
+      if (Date.now() < bloqueJusqua) { msg.textContent = "Trop d'essais. Réessaie dans quelques minutes."; return; }
+      if (!window.crypto || !crypto.subtle) { msg.textContent = 'Ouvre le site en https (ou en local) pour te connecter.'; return; }
+      if (await empreinte(champ.value) === ADMIN_HASH) { essais = 0; adminDebut = Date.now(); fermer(true); return; }
+      if (++essais >= 5) { bloqueJusqua = Date.now() + 5 * 60 * 1000; essais = 0; }
+      msg.textContent = 'Mot de passe incorrect.';
+      champ.value = ''; champ.focus();
+    };
+    champ.focus();
+  });
+}
+
+async function toggleAdminPanel() {
+  const panneau = document.getElementById('admin-panel');
+  if (!panneau.classList.contains('open') && !adminConnecte() && !(await demanderMotDePasse())) return;
+  panneau.classList.toggle('open');
+  document.getElementById('admin-overlay').classList.toggle('active');
+  if (panneau.classList.contains('open')) renderProductList();
+}
+
+function closeAdminPanel() {
+  document.getElementById('admin-panel').classList.remove('open');
+  document.getElementById('admin-overlay').classList.remove('active');
+}
+
+function switchTab(tabName) {
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById(`${tabName}-tab`).classList.add('active');
+  if (tabName === 'edit') renderProductList();
+}
+
+function renderProductList() {
+  const filtre = document.getElementById('filter-category').value;
+  const liste = products.map(normalizeProduct).filter(p => filtre === 'all' || p.category === filtre);
+  const boite = document.getElementById('product-list');
+  boite.innerHTML = liste.length ? liste.map(p => `
+    <div class="product-item">
+      <div style="flex: 1; text-align: left;">
+        <div style="font-weight: 600;">${escapeHtml(p.name)}</div>
+        <div style="font-size: 0.8rem; color: var(--light-text);">${escapeHtml(p.category)} - ${formatPrice(p.price)}</div>
+      </div>
+      <div class="product-item-actions">
+        <button class="edit-btn" onclick="editProduct(${p.id})">✏️ Modifier</button>
+        <button class="delete-btn" onclick="deleteProduct(${p.id})">🗑️ Supprimer</button>
+      </div>
+    </div>`).join('') : '<p style="text-align: center; padding: 1rem; color: var(--light-text);">Aucun produit trouvé.</p>';
+}
+
+function filterProductsByCategory() { renderProductList(); }
+
+function lireFormulaire() {
+  const v = id => document.getElementById(id).value.trim();
+  const price = parseFloat(v('product-price'));
+  const d = { name: v('product-name'), category: v('product-category'), price, rating: v('product-rating'),
+              description: v('product-description'), image: uploadedImageDataUrl || v('product-image'), badge: v('product-badge') };
+  if (!d.name || !d.category || isNaN(price) || !d.rating || !d.description) {
+    showNotification('Veuillez remplir tous les champs obligatoires !', true);
+    return null;
+  }
+  return d;
+}
+
+function viderFormulaire() {
+  document.getElementById('add-product-form').reset();
+  uploadedImageDataUrl = null;
+  document.getElementById('image-preview').style.display = 'none';
+}
+
+function addProduct(event) {
+  if (event) event.preventDefault();
+  const d = lireFormulaire();
+  if (!d) return;
+  const id = products.reduce((max, p) => Math.max(max, Number(normalizeProduct(p).id) || 0), 0) + 1;
+  products.push({ id, ...d });
+  sauverBrouillon();
+  viderFormulaire();
+  renderProducts();
+  renderProductList();
+  showNotification(`"${d.name}" a été ajouté !`);
+}
+
+function editProduct(productId) {
+  const p = products.map(normalizeProduct).find(x => x.id === productId);
+  if (!p) return;
+  editingProductId = p.id;
+  viderFormulaire();
+  document.getElementById('product-name').value = p.name;
+  document.getElementById('product-category').value = p.category;
+  document.getElementById('product-price').value = p.price;
+  document.getElementById('product-rating').value = p.rating;
+  document.getElementById('product-description').value = p.description;
+  document.getElementById('product-badge').value = p.badge;
+  document.getElementById('product-image').value = p.image.startsWith('data:') ? '' : p.image;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.querySelector('.tab-btn').classList.add('active');
+  document.getElementById('add-tab').classList.add('active');
+  document.getElementById('add-product-form').onsubmit = updateProduct;
+  document.querySelector('#add-product-form button[type="submit"]').textContent = '🔄 Modifier le produit';
+  showNotification(`Modification de "${p.name}"`);
+}
+
+function updateProduct(event) {
+  if (event) event.preventDefault();
+  const d = lireFormulaire();
+  if (!d) return;
+  const i = products.findIndex(p => normalizeProduct(p).id === editingProductId);
+  if (i < 0) return;
+  const ancienne = normalizeProduct(products[i]).image;
+  products[i] = { id: editingProductId, ...d, image: d.image || ancienne };
+  sauverBrouillon();
+  viderFormulaire();
+  editingProductId = null;
+  document.getElementById('add-product-form').onsubmit = addProduct;
+  document.querySelector('#add-product-form button[type="submit"]').textContent = '✅ Ajouter le produit';
+  renderProducts();
+  renderProductList();
+  showNotification(`"${d.name}" a été modifié !`);
+}
+
+function deleteProduct(productId) {
+  const p = products.map(normalizeProduct).find(x => x.id === productId);
+  if (!p || !confirm(`Êtes-vous sûr de vouloir supprimer "${p.name}" ?`)) return;
+  products = products.filter(x => normalizeProduct(x).id !== productId);
+  sauverBrouillon();
+  renderProducts();
+  renderCart();
+  renderProductList();
+  showNotification(`"${p.name}" a été supprimé.`);
+}
+
+// Génère le fichier produits.js à remplacer dans ton dossier avant de republier
+function exportProduits() {
+  const contenu = `// Généré par l'éditeur de la boutique. Remplace js/produits.js par ce fichier, puis republie le site.
+const BOUTIQUE = ${JSON.stringify(BOUTIQUE, null, 2)};
+const CATEGORIES = ${JSON.stringify(CATEGORIES, null, 2)};
+const PRODUITS = ${JSON.stringify(products.map(normalizeProduct), null, 2)};
+`;
+  const lien = document.createElement('a');
+  lien.href = URL.createObjectURL(new Blob([contenu], { type: 'text/javascript' }));
+  lien.download = 'produits.js';
+  lien.click();
+  setTimeout(() => URL.revokeObjectURL(lien.href), 1500);
+}
+
+function resetBrouillon() {
+  if (!confirm('Annuler toutes tes modifications non publiées ?')) return;
+  try { localStorage.removeItem(CLE_BROUILLON); } catch (e) {}
+  products = PRODUITS.map(p => ({ ...p }));
+  renderProducts();
+  renderCart();
+  renderProductList();
+  showNotification('Modifications annulées.');
+}
+</script>
+  <script>// ========== PANIER (enregistré dans le navigateur du visiteur) ==========
+function addToCart(productId) {
+  const ligne = cart.find(item => item.id === productId);
+  if (ligne) ligne.quantity += 1;
+  else cart.push({ id: productId, quantity: 1 });
+  saveData();
+  renderCart();
+  showNotification("Produit ajouté au panier !");
+}
+
+function removeFromCart(productId) {
+  cart = cart.filter(item => item.id !== productId);
+  saveData();
+  renderCart();
+  showNotification("Produit retiré du panier.");
+}
+
+function saveData() {
+  try { localStorage.setItem('tposervices_cart', JSON.stringify(cart)); } catch (e) {}
+}
+
+function loadData() {
+  try {
+    const sauve = JSON.parse(localStorage.getItem('tposervices_cart'));
+    if (Array.isArray(sauve)) cart = sauve;
+  } catch (e) {}
+}
+</script>
+  <script>/* ===== Animations TPOSERVICES ===== */
+(() => {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  /* Apparition des éléments quand on arrive dessus */
+  const obs = new IntersectionObserver(entrees => entrees.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add("visible"); obs.unobserve(e.target); }
+  }), { threshold: 0.12 });
+
+  const suivre = (el, rang = 0) => {
+    el.style.setProperty("--delai", Math.min(rang, 8) * 0.07 + "s");
+    el.classList.add("reveal");
+    obs.observe(el);
+  };
+
+  document.querySelectorAll(".section-title, .contact-section").forEach(el => suivre(el));
+  document.querySelectorAll(".category-card, .service-card").forEach((el, i) => suivre(el, i % 4));
+
+  /* Les produits sont créés par main.js : on anime chaque nouvelle carte */
+  const grille = document.getElementById("products-grid");
+  if (grille) {
+    const animerCartes = () => [...grille.children].forEach((el, i) => {
+      if (!el.classList.contains("reveal")) suivre(el, i % 8);
+    });
+    new MutationObserver(animerCartes).observe(grille, { childList: true });
+    animerCartes();
+  }
+
+  /* Le compteur du panier grossit quand il change */
+  const compteur = document.getElementById("cart-count");
+  if (compteur) {
+    new MutationObserver(() => {
+      compteur.classList.remove("bump"); void compteur.offsetWidth; compteur.classList.add("bump");
+    }).observe(compteur, { childList: true, characterData: true, subtree: true });
+  }
+})();
+</script>
+</body>
+</html>
